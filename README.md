@@ -1,25 +1,50 @@
-# Image Filtering and Edge Suppression (Custom Implementation)
+# Canny Edge Detection
 
-This script contains a custom Python implementation of spatial image filtering (convolution) with padding and stride support, along with the foundational steps for Non-Maximum Suppression and Double Thresholding (commonly used in Canny Edge Detection).
+## Introduction
 
-## Prerequisites
+This experiment implements the **Canny Edge Detection** technique on a grayscale image using Python, OpenCV, NumPy, and Matplotlib.
 
-Ensure you have the required Python libraries installed:
+## Objective
 
-    pip install opencv-python matplotlib numpy
+To detect significant edges in an image using smoothing, Sobel operators, non-maximum suppression, and hysteresis thresholding.
 
-## How to Use
+## Technologies Used
 
-1. Update the image path in the script. It currently reads from `/content/drive/MyDrive/dove.jpg`. Change this to your local image path:
-       
-       img = cv2.imread('path/to/your/image.jpg')
-       
-2. Run the script in your terminal or Python environment.
-### Note: You can directly open the `.ipynb` file in Colab or Jupyter Notebook.
+* Python
+* OpenCV
+* NumPy
+* Matplotlib
+* Google Colab
 
-## How it Works
+## Methodology
 
-1. **Custom Convolution**: The `image_filtering` function implements mathematical convolution with customizable padding (`p`) and stride (`s`) parameters, returning the filtered image array.
-2. **Kernel Operations**: Initializes a 9x9 normalized Box Filter (Average Filter) and applies it to the image.
-3. **Non-Maximum Suppression (NMS)**: Contains the logic to thin edges by comparing pixel gradients across discrete orientation angles (Note: depends on gradient magnitude and orientation arrays).
-4. **Hysteresis Thresholding**: Defines Strong and Weak edges using high and low threshold values (`Th` and `Tl`), isolating the most distinct structural edges in the image.
+1. Convert the input image to grayscale.
+2. Apply average filtering for smoothing.
+3. Calculate horizontal and vertical gradients using Sobel operators.
+4. Calculate gradient magnitude and orientation.
+5. Quantize the orientation into 0°, 45°, 90°, and 135°.
+6. Apply Non-Maximum Suppression.
+7. Apply Hysteresis Thresholding.
+8. Display the final Canny edge image.
+
+## Output
+
+The program displays:
+
+* Original Grayscale Image
+* Gradient Magnitude
+* Non-Maximum Suppressed Image
+* Canny Edges
+
+## Result
+
+The significant edges of the input image were successfully detected using the Canny edge detection process.
+
+## Conclusion
+
+Thus, Canny edge detection was successfully implemented using smoothing, Sobel gradient calculation, non-maximum suppression, and hysteresis thresholding.
+
+
+#OUTPUT:-
+
+<img width="1415" height="345" alt="image" src="https://github.com/user-attachments/assets/b0cb06a6-ca68-4deb-b6f0-3d4585ec50dc" />
